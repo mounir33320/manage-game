@@ -1,0 +1,12 @@
+<nav>
+  <div>
+    <button routerLink="/profile" routerLinkActive="active" mat-raised-button color="primary">Liste de mes jeux</button>
+    <button routerLink="/game/create" routerLinkActive="active" mat-raised-button color="primary">Créer un jeu</button>
+  </div>
+  <div class="auth">
+    <button *ngIf="!connected" routerLink="/signin" routerLinkActive="active" mat-raised-button color="primary">Se connecter</button>
+    <button *ngIf="connected" (click)="disconnect()" mat-raised-button color="primary">Se déconnecter</button>
+    <button *ngIf="connected" routerLink="/profile/edit" routerLinkActive="active" mat-raised-button color="primary">Éditer mon profil</button>
+    <button *ngIf="!connected" routerLink="/signup" routerLinkActive="active" mat-raised-button color="primary">Créer un compte</button>
+  </div>
+</nav>

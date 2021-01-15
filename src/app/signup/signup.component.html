@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Créez votre compte</h1>
+  <form #signupForm= "ngForm" (ngSubmit)="onSubmit(signupForm.value)">
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="6" >
+        <mat-form-field>
+          <mat-label>Pseudo</mat-label>
+          <input #pseudo="ngModel" type="text" matInput ngModel name="pseudo" required>
+          <mat-error *ngIf="email.invalid">Le pseudo est requis</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="6">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input #email="ngModel" type="email" matInput ngModel name="email" pattern="[a-zA-Z0-9-._]+@[a-z]+\.[a-z]{2,4}" required>
+          <mat-error *ngIf="email.invalid">L'email est invalide</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="6">
+        <mat-form-field>
+          <mat-label>Mot de passe</mat-label>
+          <input #password="ngModel" type="password" name="password" ngModel matInput required>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="6">
+        <button type="submit" mat-raised-button color="primary" [disabled]="signupForm.invalid">Créer</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+
+</div>

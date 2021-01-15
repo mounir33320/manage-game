@@ -1,0 +1,12 @@
+<div class="container">
+  <a routerLink="/game/create" mat-raised-button color="primary">Ajouter un jeu</a>
+  <mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let game of games" colspan="1">
+      <div routerLink="/signin" class="figure">
+        <img class="figure__img" [src]="api+'/'+game.thumbnail" alt="">
+        <p class="text-center">{{ game.title }}</p>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

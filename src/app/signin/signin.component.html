@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="text-center">Formulaire de connexion</h1>
+  <div *ngIf="alert" [class]="alert.className">
+    {{ alert.message }}
+  </div>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()" >
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="12">
+        <mat-form-field>
+          <mat-label>Votre email :</mat-label>
+          <input type="email" matInput formControlName="email">
+          <mat-error *ngIf="authForm.controls.email.hasError('required')" >
+            Le champ <strong>email est requis</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="12">
+        <mat-form-field>
+          <mat-label>Mot de passe :</mat-label>
+          <input type="password" matInput  formControlName="password">
+          <mat-error *ngIf="authForm.controls.password.hasError('required')" >
+            Le champ <strong>password est requis</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile colspan="12" >
+        <button type="submit" mat-raised-button color="primary" [disabled]="authForm.invalid">Connexion</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  <p class="text-center">Pas de compte ?<a [routerLink]="signupUrl" mat-button color="primary" >Créer son compte</a></p>
+
+</div>
+

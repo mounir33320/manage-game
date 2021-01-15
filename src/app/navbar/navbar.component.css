@@ -1,0 +1,15 @@
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #9270D1;
+}
+
+button{
+  margin-left: 20px;
+}
+
+.active{
+  background-color: #fff;
+  color: #673AB7;
+}

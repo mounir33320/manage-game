@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container{
+  max-width: 70%;
+  margin: auto;
+  padding: 20px;
+}
+
+.mat-form-field{
+  width: 80%;
+}
+
+.w-100{
+  width: 90%;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.alert{
+  margin: auto;
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.success{
+  color: #4D5724;
+  background-color: #D4EDDA;
+}
+
+.error{
+  color: #993127;
+  background-color: #F8D7DA;
+}
+
+.thumb{
+  width: 300px;
+}
+
+.fade-out{
+  animation: fade-out 2s;
+}
+
+.d-none {
+  display: none;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

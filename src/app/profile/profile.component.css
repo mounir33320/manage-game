@@ -1,0 +1,7 @@
+mat-grid-tile {
+  border: 1px solid #ecf0f1;
+}
+
+div[routerLink] {
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<div class="container">
+  <h1 class="text-center">Éditer son profil</h1>
+  <div id="message" *ngIf="alert" [class]="alert.className">
+    {{ alert.message }}
+  </div>
+  <h2 class="text-center">Photo de profil <br>
+    <div *ngIf="loading" class="lds-dual-ring"></div>
+    <img class="thumb text-center" *ngIf="!loading && user && user.profile_picture" [src]="apiUrl + '/' + user.profile_picture+'?v='+ random" alt="">
+  </h2>
+
+
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" >
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="12">
+        <mat-form-field>
+          <mat-label>Votre pseudo :</mat-label>
+          <input type="text" matInput formControlName="pseudo">
+          <mat-error *ngIf="editForm.controls.email.hasError('required')" >
+            Le champ <strong>email est requis</strong>
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="12">
+        <mat-form-field>
+          <mat-label>Votre email :</mat-label>
+          <input type="email" matInput formControlName="email">
+          <mat-error *ngIf="editForm.controls.email.hasError('required')" >
+            Le champ <strong>email est requis</strong>
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="12">
+        <label for="profile_picture"></label>
+        <input id="profile_picture" accept="image/*" type="file" formControlName="profile_picture" (change)="uploadFile($event.target.files[0])" >
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="12" >
+        <button type="submit" mat-raised-button color="primary" [disabled]="editForm.invalid">Modifier</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+
+</div>
